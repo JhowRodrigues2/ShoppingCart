@@ -1,5 +1,15 @@
 export {};
-import { Main, MainContent, Title } from "./style";
+import {
+  CategoryProd,
+  InfoProd,
+  Main,
+  MainContent,
+  NameProd,
+  Product,
+  Quantity,
+  RemoveBt,
+  Title,
+} from "./style";
 
 const Content = () => {
   return (
@@ -18,13 +28,35 @@ const Content = () => {
               </tr>
             </thead>
             <tbody>
-              <td></td>
-              <td>R$ 120</td>
-              <td></td>
-              <td>R$ 240</td>
-              <td>
-                <i className="bx bx-x"></i>
-              </td>
+              <tr>
+                <td>
+                  <Product>
+                    <img src="https://picsum.photos/100/120" alt="" />
+                    <InfoProd>
+                      <NameProd>nome do Produto</NameProd>
+                      <CategoryProd>Categoria</CategoryProd>
+                    </InfoProd>
+                  </Product>
+                </td>
+                <td>R$ 120</td>
+                <td>
+                  <Quantity>
+                    <button>
+                      <i className="bx bx-minus"></i>
+                    </button>
+                    <span>2</span>
+                    <button>
+                      <i className="bx bx-plus"></i>
+                    </button>
+                  </Quantity>
+                </td>
+                <td>R$ 240</td>
+                <td>
+                  <RemoveBt>
+                    <i className="bx bx-x"></i>
+                  </RemoveBt>
+                </td>
+              </tr>
             </tbody>
           </table>
         </section>

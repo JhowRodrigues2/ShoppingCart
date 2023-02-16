@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
 html,body{
   height: 100%;
 }
+button{ 
+  cursor: pointer;
+}
 `;
 
 export default GlobalStyle;
