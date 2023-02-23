@@ -69,15 +69,20 @@ export const RemoveBt = styled.button`
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  &:hover {
+    background: #ddd;
+  }
 `;
 export const Quantity = styled.div`
   background: #eee;
   display: inline-flex;
-  padding: 5px 0;
+  padding: 0 0;
   justify-content: space-around;
   min-width: 60px;
   border-radius: 20px;
   align-items: center;
+  overflow: hidden;
+  height: 30px;
   button {
     align-items: center;
     display: flex;
@@ -85,6 +90,10 @@ export const Quantity = styled.div`
     border: 0;
     padding: 0 10px;
     font-size: 20px;
+    height: 100%;
+  }
+  button:hover {
+    background: #ddd;
   }
   span {
     margin: 0 10px;

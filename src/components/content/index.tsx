@@ -1,4 +1,5 @@
 export {};
+import Aside from "../aside";
 import {
   CategoryProd,
   InfoProd,
@@ -60,7 +61,7 @@ const Content = () => {
             </tbody>
           </table>
         </section>
-        <aside> Resumo das Compras</aside>
+        <Aside />
       </MainContent>
     </Main>
   );
