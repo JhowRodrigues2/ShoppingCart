@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   background: #fff;
-  padding: 0 30px;
+  padding: 0 30px 30px;
 `;
 export const Title = styled.div`
   font-size: 40px;

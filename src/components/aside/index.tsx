@@ -1,11 +1,10 @@
-import React from "react";
-import { Box, FooterBox, HeaderBox, Info } from "./style";
+import { AsideArea, Box, Checkout, FooterBox, HeaderBox, Info } from "./style";
 
 const Aside = () => {
   return (
-    <aside>
+    <AsideArea>
       <Box>
-        <HeaderBox></HeaderBox>
+        <HeaderBox>Resumo da Compra</HeaderBox>
         <Info>
           <div>
             <span>Sub-total</span>
@@ -22,9 +21,13 @@ const Aside = () => {
             </button>
           </div>
         </Info>
-        <FooterBox></FooterBox>
+        <FooterBox>
+          <span>Total</span>
+          <span>R$418,00</span>
+        </FooterBox>
       </Box>
-    </aside>
+      <Checkout>Finalizar Compra</Checkout>
+    </AsideArea>
   );
 };
 
