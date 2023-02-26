@@ -15,11 +15,10 @@ type ProductProps = {
     quantity: number;
     category: string;
   };
+  handleRemoveItem: () => void;
 };
 
-const Cart = ({ data }: ProductProps) => {
-  const handleRemoveItem = () => {};
-
+const Cart = ({ data, handleRemoveItem }: ProductProps) => {
   return (
     <tr>
       <td>

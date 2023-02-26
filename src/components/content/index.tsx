@@ -32,6 +32,7 @@ const Content = () => {
       fetchData();
     });
   };
+  const handleRemoveItem = () => {};
   const handleUpdateItem = () => {};
   return (
     <Main>
@@ -51,7 +52,11 @@ const Content = () => {
             </thead>
             <tbody>
               {cart.map((item) => (
-                <Cart data={item} key={uuid()} />
+                <Cart
+                  data={item}
+                  key={uuid()}
+                  handleRemoveItem={handleRemoveItem}
+                />
               ))}
               {cart.length === 0 && (
                 <tr>
