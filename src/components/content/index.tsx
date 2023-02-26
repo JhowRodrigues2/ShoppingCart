@@ -32,7 +32,6 @@ const Content = () => {
       fetchData();
     });
   };
-  const handleRemoveItem = () => {};
   const handleUpdateItem = () => {};
   return (
     <Main>
