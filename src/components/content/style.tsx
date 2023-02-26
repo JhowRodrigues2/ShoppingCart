@@ -42,3 +42,7 @@ export const MainContent = styled.div`
     }
   }
 `;
+export const AddToCart = styled.button`
+  padding: 5px 10px;
+  margin-bottom: 15px;
+`;
