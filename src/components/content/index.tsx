@@ -26,13 +26,16 @@ const Content = () => {
     fetchData();
   }, []);
 
-  console.log(cart);
   const handleAddItem = () => {
     api.post("/cart", productObject).then((res) => {
       fetchData();
     });
   };
-  const handleRemoveItem = () => {};
+  const handleRemoveItem = (item: any) => {
+    api.delete(`/cart/${item._id}`).then((res) => {
+      fetchData();
+    });
+  };
   const handleUpdateItem = () => {};
   return (
     <Main>

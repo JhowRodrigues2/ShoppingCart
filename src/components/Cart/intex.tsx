@@ -15,7 +15,7 @@ type ProductProps = {
     quantity: number;
     category: string;
   };
-  handleRemoveItem: () => void;
+  handleRemoveItem: (item: any) => void;
 };
 
 const Cart = ({ data, handleRemoveItem }: ProductProps) => {
@@ -44,7 +44,7 @@ const Cart = ({ data, handleRemoveItem }: ProductProps) => {
       </td>
       <td>{data.price * data.quantity}</td>
       <td>
-        <RemoveBt onClick={handleRemoveItem}>
+        <RemoveBt onClick={() => handleRemoveItem(data)}>
           <i className="bx bx-x"></i>
         </RemoveBt>
       </td>
