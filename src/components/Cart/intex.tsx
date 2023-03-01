@@ -7,18 +7,18 @@ import {
   RemoveBt,
 } from "./style";
 
-type ProductProps = {
+export type ProductProps = {
   data: {
-    _id?: number;
+    _id?: string;
     name: string;
     price: number;
     quantity: number;
     category: string;
   };
-  handleRemoveItem: (item: any) => void;
+  handleRemoveItem: (item: object) => void;
+  handleUpdateItem: (item: object, action: string) => any;
 };
-
-const Cart = ({ data, handleRemoveItem }: ProductProps) => {
+const Cart = ({ data, handleRemoveItem, handleUpdateItem }: ProductProps) => {
   return (
     <tr>
       <td>
@@ -33,11 +33,11 @@ const Cart = ({ data, handleRemoveItem }: ProductProps) => {
       <td>R$ {data.price}</td>
       <td>
         <Quantity>
-          <button>
+          <button onClick={() => handleUpdateItem(data, "decrease")}>
             <i className="bx bx-minus"></i>
           </button>
           <span>{data.quantity}</span>
-          <button>
+          <button onClick={() => handleUpdateItem(data, "increase")}>
             <i className="bx bx-plus"></i>
           </button>
         </Quantity>

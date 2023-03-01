@@ -1,7 +1,7 @@
 export {};
 import { useEffect, useState } from "react";
 import Aside from "../aside";
-import Cart from "../Cart/intex";
+import Cart, { ProductProps } from "../Cart/intex";
 import { AddToCart, Main, MainContent, Title } from "./style";
 import { api } from "../provider";
 import { v4 as uuid } from "uuid";
@@ -9,6 +9,11 @@ import { v4 as uuid } from "uuid";
 function randomPrince(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
+export type ItemProps = {
+  _id?: string;
+  item: object;
+  quantity?: number;
+};
 
 const Content = () => {
   const [cart, setCart] = useState([]);
@@ -36,7 +41,18 @@ const Content = () => {
       fetchData();
     });
   };
-  const handleUpdateItem = () => {};
+
+  const handleUpdateItem = (item: ItemProps, action: string) => {
+    let newQuantity = item.quantity;
+    if (action === "decrease") {
+      newQuantity -= 1;
+    }
+    if (action === "increase") {
+      newQuantity += 1;
+    }
+    console.log(newQuantity);
+  };
+
   return (
     <Main>
       <Title> Your Shopping Cart</Title>
@@ -59,6 +75,7 @@ const Content = () => {
                   data={item}
                   key={uuid()}
                   handleRemoveItem={handleRemoveItem}
+                  handleUpdateItem={handleUpdateItem}
                 />
               ))}
               {cart.length === 0 && (
