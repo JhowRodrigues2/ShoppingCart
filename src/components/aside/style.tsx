@@ -34,17 +34,6 @@ export const Info = styled.div`
       margin: 0;
     }
   }
-  button {
-    color: #2e8b57;
-    background: transparent;
-    border: 0;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-  }
-  i {
-    font-size: 20px;
-  }
 `;
 
 export const Checkout = styled.button`

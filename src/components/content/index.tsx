@@ -13,6 +13,7 @@ export type ItemProps = {
   _id?: string;
   item: object;
   quantity?: number;
+  total?: number;
 };
 
 const Content = () => {
@@ -50,9 +51,20 @@ const Content = () => {
     if (action === "increase") {
       newQuantity += 1;
     }
-    console.log(newQuantity);
+    const newData = { ...item, quantity: newQuantity };
+    delete newData._id;
+    api.put(`/cart/${item._id}`, newData).then((res) => {
+      fetchData();
+    });
   };
-
+  const getTotal = () => {
+    let sum = 0;
+    for (let item of cart) {
+      sum = +item.price * item.quantity;
+    }
+    return sum;
+  };
+  const cartTotal = getTotal();
   return (
     <Main>
       <Title> Your Shopping Cart</Title>
@@ -88,7 +100,7 @@ const Content = () => {
             </tbody>
           </table>
         </section>
-        <Aside />
+        <Aside total={cartTotal} />
       </MainContent>
     </Main>
   );
