@@ -65,6 +65,10 @@ const Content = () => {
     return sum;
   };
   const cartTotal = getTotal();
+
+  /* - Loader para mostrar os produtos do carrinho.
+   - Compartilhar total através de context api 
+  - Desabilitar botão quando quantidade chegar em um ou remover o item quando zerar*/
   return (
     <Main>
       <Title> Your Shopping Cart</Title>
