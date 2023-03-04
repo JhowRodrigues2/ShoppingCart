@@ -17,7 +17,7 @@ export type ItemProps = {
   total?: number;
 };
 
-/* - Loader para mostrar os produtos do carrinho.
+/*
    - Compartilhar total através de context api 
   - Desabilitar botão quando quantidade chegar em um ou remover o item quando zerar
   - Design responsivo*/
