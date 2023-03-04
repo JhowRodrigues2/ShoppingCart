@@ -5,29 +5,38 @@ import Cart, { ProductProps } from "../Cart/intex";
 import { AddToCart, Main, MainContent, Title } from "./style";
 import { api } from "../provider";
 import { v4 as uuid } from "uuid";
+import Loader from "../loader";
 //function to create a random price to insert in the product
 function randomPrince(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 export type ItemProps = {
   _id?: string;
-  item: object;
+  item?: object;
   quantity?: number;
   total?: number;
 };
 
+/* - Loader para mostrar os produtos do carrinho.
+   - Compartilhar total através de context api 
+  - Desabilitar botão quando quantidade chegar em um ou remover o item quando zerar
+  - Design responsivo*/
+
 const Content = () => {
   const [cart, setCart] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(false);
   const productObject = {
     name: "produto",
     category: "category",
     price: randomPrince(90, 1200),
     quantity: 1,
   };
-  const fetchData = () => {
-    api.get("/cart").then((res) => setCart(res.data));
+  const fetchData = async () => {
+    setIsLoading(true);
+    await api.get("/cart").then((res) => setCart(res.data));
+    setIsLoading(false);
   };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -66,9 +75,6 @@ const Content = () => {
   };
   const cartTotal = getTotal();
 
-  /* - Loader para mostrar os produtos do carrinho.
-   - Compartilhar total através de context api 
-  - Desabilitar botão quando quantidade chegar em um ou remover o item quando zerar*/
   return (
     <Main>
       <Title> Your Shopping Cart</Title>
@@ -85,6 +91,7 @@ const Content = () => {
                 <th>-</th>
               </tr>
             </thead>
+
             <tbody>
               {cart.map((item) => (
                 <Cart
@@ -94,12 +101,15 @@ const Content = () => {
                   handleUpdateItem={handleUpdateItem}
                 />
               ))}
-              {cart.length === 0 && (
+              {cart.length === 0 ? (
                 <tr>
                   <td colSpan={5} style={{ textAlign: "center" }}>
+                    {isLoading ? <Loader /> : ""}
                     <b>Carrinho de compras vazio!</b>
                   </td>
                 </tr>
+              ) : (
+                ""
               )}
             </tbody>
           </table>
