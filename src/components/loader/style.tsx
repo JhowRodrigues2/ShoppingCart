@@ -13,5 +13,5 @@ export const LoaderIcon = styled.div`
   left: 50%;
   margin-top: 40px;
   font-size: 50px;
-  margin-left: -25px;
+  margin-left: -215px;
 `;

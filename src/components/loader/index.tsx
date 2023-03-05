@@ -1,9 +1,9 @@
 import { LoaderIcon } from "./style";
-
+import { BiLoader } from "react-icons/bi";
 const Loader = () => {
   return (
     <LoaderIcon>
-      <i className="bx bx-loader"></i>{" "}
+      <BiLoader size={120} />
     </LoaderIcon>
   );
 };

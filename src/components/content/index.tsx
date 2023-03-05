@@ -2,7 +2,7 @@ export {};
 import { useEffect, useState } from "react";
 import Aside from "../aside";
 import Cart, { ProductProps } from "../Cart/intex";
-import { AddToCart, Main, MainContent, Title } from "./style";
+import { AddToCart, LoaderArea, Main, MainContent, Title } from "./style";
 import { api } from "../provider";
 import { v4 as uuid } from "uuid";
 import Loader from "../loader";
@@ -74,7 +74,6 @@ const Content = () => {
     return sum;
   };
   const cartTotal = getTotal();
-
   return (
     <Main>
       <Title> Your Shopping Cart</Title>
@@ -103,9 +102,14 @@ const Content = () => {
               ))}
               {cart.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: "center" }}>
-                    {isLoading ? <Loader /> : ""}
+                  <td
+                    colSpan={5}
+                    style={{
+                      textAlign: "center",
+                    }}
+                  >
                     <b>Carrinho de compras vazio!</b>
+                    {isLoading == true ? <Loader /> : ""}
                   </td>
                 </tr>
               ) : (
