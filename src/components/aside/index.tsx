@@ -1,7 +1,9 @@
-import { ItemProps } from "../content";
 import { AsideArea, Box, Checkout, FooterBox, HeaderBox, Info } from "./style";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+const Aside = () => {
+  const { cartTotal } = useContext(CartContext);
 
-const Aside = ({ total }: ItemProps) => {
   return (
     <AsideArea>
       <Box>
@@ -9,12 +11,12 @@ const Aside = ({ total }: ItemProps) => {
         <Info>
           <div>
             <span>Sub-total</span>
-            <span>R$ {total}</span>
+            <span>R$ {cartTotal}</span>
           </div>
         </Info>
         <FooterBox>
           <span>Total</span>
-          <span>{total}</span>
+          <span>{cartTotal}</span>
         </FooterBox>
       </Box>
       <Checkout>Finalizar Compra</Checkout>
