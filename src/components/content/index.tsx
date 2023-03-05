@@ -1,7 +1,6 @@
 import Aside from "../aside";
-import Cart, { ProductProps } from "../Cart/intex";
+import Cart from "../Cart/intex";
 import { AddToCart, Main, MainContent, Title } from "./style";
-import { api } from "../provider";
 import { v4 as uuid } from "uuid";
 import Loader from "../loader";
 import { useContext } from "react";
