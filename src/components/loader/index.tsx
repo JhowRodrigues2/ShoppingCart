@@ -3,7 +3,7 @@ import { BiLoader } from "react-icons/bi";
 const Loader = () => {
   return (
     <LoaderIcon>
-      <BiLoader size={120} />
+      <BiLoader size={103} />
     </LoaderIcon>
   );
 };

@@ -44,6 +44,9 @@ export const CartProvider = ({ children }: ChildrenProps) => {
 
   useEffect(() => {
     fetchData();
+    if (cart.length == 0) {
+      setIsLoading(false);
+    }
   }, []);
 
   const handleAddItem = () => {
