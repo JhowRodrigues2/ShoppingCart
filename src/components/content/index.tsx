@@ -6,9 +6,7 @@ import Loader from "../loader";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 
-/*
-=  - Desabilitar botão quando quantidade chegar em um ou remover o item quando zerar
-  - Design responsivo*/
+/*- Design responsivo*/
 
 const Content = () => {
   const { handleAddItem, cart, handleUpdateItem, isLoading, handleRemoveItem } =

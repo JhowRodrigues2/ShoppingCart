@@ -1,4 +1,9 @@
 import styled from "styled-components";
+export const CartArea = styled.tr`
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
+`;
 export const Product = styled.div`
   display: flex;
   align-items: center;

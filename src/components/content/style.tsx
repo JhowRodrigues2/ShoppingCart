@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   background: #fff;
+
   padding: 0 30px 30px;
 `;
 export const Title = styled.div`
@@ -12,6 +13,16 @@ export const Title = styled.div`
 
 export const MainContent = styled.div`
   display: flex;
+  @media (max-width: 768px) {
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    thead {
+      display: none;
+    }
+  }
   section {
     flex: 1;
   }
@@ -35,10 +46,16 @@ export const MainContent = styled.div`
   td {
     padding: 15px 0;
   }
+
   tbody tr {
     border-bottom: 3px solid #eee;
     &:last-child {
       border: 0;
+    }
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 `;

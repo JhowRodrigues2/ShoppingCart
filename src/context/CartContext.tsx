@@ -7,6 +7,10 @@ export type ItemProps = {
   quantity?: number;
   total?: number;
 };
+type ChildrenProps = {
+  children: React.ReactNode;
+};
+
 type ContextProps = {
   cart: any;
   handleAddItem: () => void;
@@ -17,9 +21,6 @@ type ContextProps = {
   isLoading: boolean;
 };
 
-type ChildrenProps = {
-  children: React.ReactNode;
-};
 export const CartContext = createContext({} as ContextProps);
 
 function randomPrince(min: number, max: number) {
@@ -57,7 +58,7 @@ export const CartProvider = ({ children }: ChildrenProps) => {
   };
 
   const handleUpdateItem = (item: ItemProps, action: string) => {
-    let newQuantity = item.quantity;
+    let newQuantity: any = item.quantity;
     if (action === "decrease") {
       newQuantity -= 1;
     }
@@ -69,9 +70,16 @@ export const CartProvider = ({ children }: ChildrenProps) => {
     api.put(`/cart/${item._id}`, newData).then((res) => {
       fetchData();
     });
+
+    if (newQuantity === 0) {
+      api.delete(`/cart/${item._id}`).then((res) => {
+        fetchData();
+      });
+    }
   };
   const getTotal = () => {
     let sum = 0;
+
     for (let item of cart) {
       sum = +item.price * item.quantity;
     }

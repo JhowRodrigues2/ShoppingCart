@@ -1,4 +1,5 @@
 import {
+  CartArea,
   CategoryProd,
   InfoProd,
   NameProd,
@@ -20,7 +21,7 @@ export type ProductProps = {
 };
 const Cart = ({ data, handleRemoveItem, handleUpdateItem }: ProductProps) => {
   return (
-    <tr>
+    <CartArea>
       <td>
         <Product>
           <img src="https://picsum.photos/100/120" alt="" />
@@ -48,7 +49,7 @@ const Cart = ({ data, handleRemoveItem, handleUpdateItem }: ProductProps) => {
           <i className="bx bx-x"></i>
         </RemoveBt>
       </td>
-    </tr>
+    </CartArea>
   );
 };
 
