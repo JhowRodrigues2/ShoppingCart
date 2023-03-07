@@ -28,7 +28,7 @@ function randomPrince(min: number, max: number) {
 }
 
 export const CartProvider = ({ children }: ChildrenProps) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(false);
   const productObject = {
     name: "produto",
