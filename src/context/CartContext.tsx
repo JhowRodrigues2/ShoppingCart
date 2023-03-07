@@ -81,7 +81,7 @@ export const CartProvider = ({ children }: ChildrenProps) => {
     let sum = 0;
 
     for (let item of cart) {
-      sum = +item.price * item.quantity;
+      sum += item.price * item.quantity;
     }
     return sum;
   };
