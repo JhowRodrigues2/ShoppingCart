@@ -14,4 +14,7 @@ export const LoaderIcon = styled.div`
   margin-top: 40px;
   font-size: 50px;
   margin-left: -215px;
+  @media (max-width: 768px) {
+    margin-left: -50px;
+  }
 `;
